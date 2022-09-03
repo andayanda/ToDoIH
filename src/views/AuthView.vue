@@ -1,6 +1,8 @@
 <template>
   <h1>Esta es la vista de SignUp/In</h1>
+
   <button @click="handleSingnUp">Singn Up</button>
+  <!-- <button @click="handleSingnIn">Singn In</button> -->
 </template>
 
 <script>
@@ -19,7 +21,7 @@ export default {
         email: 'carmela@gmail.com',
         password: 'papepi123',
       };
-      this.singnUp(userData.email, userData.password);
+      this.signUp(userData.email, userData.password);
     },
   },
   watch: {
