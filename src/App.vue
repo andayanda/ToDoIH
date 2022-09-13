@@ -22,6 +22,12 @@ export default {
     try {
       await this.fetchUser(); // here we call fetch user
       console.log(this.user);
+    } catch (e) {
+      console.error(e);
+    }
+  },
+  watch: {
+    user() {
       if (!this.user) {
         // redirect them to logout if the user is not there
         this.$router.push({ path: '/auth' });
@@ -29,9 +35,7 @@ export default {
         // continue to dashboard
         this.$router.push({ path: '/' });
       }
-    } catch (e) {
-      console.error(e);
-    }
+    },
   },
 };
 </script>

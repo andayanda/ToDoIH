@@ -22,26 +22,12 @@ export default {
       };
       this.signUp(userData.email, userData.password);
     },
-    handleSignOut() {
-      this.signOut();
-      if (this.user === null) {
-        this.$router.push('/auth');
-      }
-    },
     handleSignIn() {
       const userData = {
         email: 'carmela@gmail.com',
         password: 'papepi123',
       };
       this.signIn(userData.email, userData.password);
-    },
-  },
-  watch: {
-    user() {
-      if (this.user) {
-        console.log(this.user);
-        this.$router.push({ path: '/' });
-      }
     },
   },
 };
