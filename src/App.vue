@@ -1,13 +1,17 @@
 <template>
-  <nav v-if="user !== null"><router-link to="/">Home</router-link> |</nav>
+  <NavBar></NavBar>
   <router-view />
 </template>
 <script>
 import userStore from '@/store/user';
 import { mapState, mapActions } from 'pinia';
+import NavBar from './components/NavBar.vue';
 
 export default {
   name: 'App',
+  components: {
+    NavBar,
+  },
   computed: {
     ...mapState(userStore, ['user']),
   },
