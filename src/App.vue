@@ -1,13 +1,17 @@
 <template>
-  <nav><router-link to="/">Home</router-link> |</nav>
+  <NavBar></NavBar>
   <router-view />
 </template>
 <script>
 import userStore from '@/store/user';
 import { mapState, mapActions } from 'pinia';
+import NavBar from './components/NavBar.vue';
 
 export default {
   name: 'App',
+  components: {
+    NavBar,
+  },
   computed: {
     ...mapState(userStore, ['user']),
   },
@@ -18,6 +22,12 @@ export default {
     try {
       await this.fetchUser(); // here we call fetch user
       console.log(this.user);
+    } catch (e) {
+      console.error(e);
+    }
+  },
+  watch: {
+    user() {
       if (!this.user) {
         // redirect them to logout if the user is not there
         this.$router.push({ path: '/auth' });
@@ -25,9 +35,7 @@ export default {
         // continue to dashboard
         this.$router.push({ path: '/' });
       }
-    } catch (e) {
-      console.error(e);
-    }
+    },
   },
 };
 </script>

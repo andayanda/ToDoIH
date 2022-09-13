@@ -1,6 +1,7 @@
 <template>
   <h1>Esta es la vista de SignUp/In</h1>
-  <button @click="handleSingnUp">Singn Up</button>
+  <button @click="handleSignUp">Sign Up</button>
+  <button @click="handleSignIn">Sign In</button>
 </template>
 
 <script>
@@ -13,23 +14,21 @@ export default {
     ...mapState(userStore, ['user']),
   },
   methods: {
-    ...mapActions(userStore, ['signUp']),
-    handleSingnUp() {
+    ...mapActions(userStore, ['signUp', 'signOut', 'signIn']),
+    handleSignUp() {
+      const userData = {
+        email: 'pepito@gmail.com',
+        password: 'papepi123',
+      };
+      this.signUp(userData.email, userData.password);
+    },
+    handleSignIn() {
       const userData = {
         email: 'carmela@gmail.com',
         password: 'papepi123',
       };
-      this.singnUp(userData.email, userData.password);
+      this.signIn(userData.email, userData.password);
     },
-  },
-  watch: {
-    user() {
-      if (this.user) {
-        console.log(this.user);
-        this.$router.push({ path: '/' });
-      }
-    },
-
   },
 };
 </script>
