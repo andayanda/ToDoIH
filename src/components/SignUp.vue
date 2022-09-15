@@ -1,21 +1,27 @@
 <!-- eslint-disable vuejs-accessibility/label-has-for -->
 <template>
-      <div>
+      <div class="container">
     <h2>Sign up for an account</h2>
-    <form @submit.prevent="handleSignup">
-      <div>
-        <label for="email">Email</label>
-        <input id="email" type="email" v-model="email" />
+    <form>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+        v-model="email">
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
       </div>
-      <div>
-        <label for="password">Password</label>
-        <input id="password" type="password" v-model="password" />
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" v-model="password">
       </div>
-      <div> <label for="confirmPassword">Confirm Password</label>
-        <input id="confirmPassword" type="confirmPassword" v-model="confirmPassword" /></div>
+      <div class="mb-3">
+        <label for="confirmPassword" class="form-label">Confirm Password</label>
+        <input type="confirmPassword" class="form-control" id="confirmPassword"
+        v-model="confirmPassword">
+      </div>
+
     </form>
   </div>
-  <button @click="handleSignUp">Sign Up</button>
+  <button type="submit" class="btn btn-primary" @click="handleSignUp">Sign Up</button>
 </template>
 
 <script>
