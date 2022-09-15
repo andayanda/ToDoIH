@@ -1,33 +1,17 @@
 <!-- eslint-disable vuejs-accessibility/label-has-for -->
 <template>
-  <div>
-    <h2>Sign up for an account</h2>
-    <form @submit.prevent="handleSignup">
-      <div>
-        <label for="email">Email</label>
-        <input id="email" type="email" v-model="email" />
-      </div>
-      <div>
-        <label for="password">Password</label>
-        <input id="password" type="password" v-model="password" />
-      </div>
-      <div> <label for="confirmPassword">Confirm Password</label>
-        <input id="confirmPassword" type="confirmPassword" v-model="confirmPassword" /></div>
-    </form>
-  </div>
-
-  <button @click="handleSignUp">Sign Up</button>
-  <button @click="handleSignIn">Sign In</button>
+<SignUp></SignUp>
 </template>
 <!-- <SignUp /> -->
 
 <script>
 import { mapState, mapActions } from 'pinia';
 import userStore from '@/store/user';
-// import SignUp from '../components/SignUp.vue';
+import SignUp from '../components/SignUp.vue';
 
 export default {
   name: 'AuthView.vue',
+  components: { SignUp },
   data() {
     return {
       email: '',
@@ -45,7 +29,7 @@ export default {
       if (this.password !== this.confirmPassword) {
         console.log('las contraseñas no coinciden');
         return;
-      }git 
+      }
       const userData = {
         email: this.email,
         password: this.password,

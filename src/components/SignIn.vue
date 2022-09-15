@@ -1,11 +1,27 @@
-<template></template>
+<!-- eslint-disable vuejs-accessibility/label-has-for -->
+<template>
+  <div>
+    <h2>Log In</h2>
+    <form @submit.prevent="handleSignIn">
+      <div>
+        <label for="email">Email</label>
+        <input id="email" type="email" v-model="email" />
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input id="password" type="password" v-model="password" />
+      </div>
+    </form>
+  </div>
+  <button @click="handleSignIn">Sign In</button>
+</template>
 
 <script>
 import { mapState, mapActions } from 'pinia';
 import userStore from '@/store/user';
 
 export default {
-  name: 'SignUp.vue',
+  name: 'SignIn.vue',
   data() {
     return {
       email: '',

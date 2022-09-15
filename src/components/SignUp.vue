@@ -1,5 +1,21 @@
 <!-- eslint-disable vuejs-accessibility/label-has-for -->
 <template>
+      <div>
+    <h2>Sign up for an account</h2>
+    <form @submit.prevent="handleSignup">
+      <div>
+        <label for="email">Email</label>
+        <input id="email" type="email" v-model="email" />
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input id="password" type="password" v-model="password" />
+      </div>
+      <div> <label for="confirmPassword">Confirm Password</label>
+        <input id="confirmPassword" type="confirmPassword" v-model="confirmPassword" /></div>
+    </form>
+  </div>
+  <button @click="handleSignUp">Sign Up</button>
 </template>
 
 <script>
@@ -12,17 +28,22 @@ export default {
     return {
       email: '',
       password: '',
+      confirmPassword: '',
     };
   },
   computed: {
     ...mapState(userStore, ['user']),
   },
   methods: {
-    ...mapActions(userStore, ['signUp', 'signOut', 'signIn']),
+    ...mapActions(userStore, ['signUp']),
     handleSignUp() {
+      if (this.password !== this.confirmPassword) {
+        console.log('las contraseñas no coinciden');
+        return;
+      }
       const userData = {
-        email: this.email.valueOf,
-        password: this.password.valueOf,
+        email: this.email,
+        password: this.password,
       };
       this.signUp(userData.email, userData.password);
     },
