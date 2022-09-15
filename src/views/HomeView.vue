@@ -1,18 +1,26 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <div class="home"></div>
+  <h1>Esta es la vista Home</h1>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
+import { mapState, mapActions } from 'pinia';
+import taskStore from '@/store/task';
 
 export default {
   name: 'HomeView',
-  components: {
-    HelloWorld,
+  computed: {
+    ...mapState(taskStore, ['tasks']),
+  },
+  methods: {
+    ...mapActions(taskStore, ['fetchTasks']),
+  },
+  created() {
+    const taskData = {
+      title: 'mi primera tarea',
+    };
+    this.fetchTasks(taskData.title);
   },
 };
 </script>
