@@ -1,14 +1,6 @@
 <template>
   <div class="home"></div>
   <h1>Esta es la vista Home</h1>
-
-  <!-- <el-input
-    v-model="textarea"
-    maxlength="30"
-    placeholder="Please enter a task"
-    show-word-limit
-    type="textarea"
-  /> -->
 </template>
 
 <script>
