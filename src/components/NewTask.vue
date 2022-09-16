@@ -1,5 +1,6 @@
 <template>
-    <button @click="createTask" class="btn btn-info">Add your task</button>
+     <button @click="handleCreateTask" class="btn btn-info">Add your task</button>
+     <!-- {{taskItem}} -->
 </template>
 
 <script>
@@ -7,28 +8,19 @@ import { mapState, mapActions } from 'pinia';
 import taskStore from '@/store/task';
 
 export default {
-  name: 'NewTask',
-  data() {
-    return {
-      taskItem: {
-        title: 'crear tareas',
-        description: '',
-        estimate: 10,
-        priority: 5,
-        state: 'In progress',
-        userId: '',
-      },
-    };
-  },
+  name: 'NewTask.vue',
   computed: {
     ...mapState(taskStore, ['tasks']),
   },
   methods: {
     ...mapActions(taskStore, ['fetchTasks', 'createTask']),
     handleCreateTask() {
-      this.createTask();
+      const taskItem = {
+        title: 'primera tarea',
+        description: 'Bla Bla Bla',
+      };
+      this.createTask(taskItem.title, taskItem.description);
     },
   },
-
 };
 </script>
