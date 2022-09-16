@@ -1,7 +1,10 @@
 <template>
-  <nav v-if="user !== null"> <!--Cuando el usuario esté registrado saldra este boton de logout-->
-    <router-Link to="/">Home</router-Link>
-    <button @click="handleSignOut">Sign Out</button>
+  <nav class="navbar" style="background-color: #e3f2fd;"
+   v-if="user !== null"> <!--Cuando el usuario esté registrado saldra este boton de logout-->
+   <div class="container-fluid">
+    <router-Link to="/" class="navbar-brand">Home</router-Link>
+    <button class="navbar-toggler" @click="handleSignOut">Sign Out</button>
+   </div>
   </nav>
   </template>
 
@@ -25,3 +28,9 @@ export default {
   },
 };
 </script>
+<style>
+  .navbar{
+   margin: 1em 2em;
+   padding: 1em 2em;
+  }
+</style>

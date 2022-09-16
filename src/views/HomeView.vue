@@ -1,12 +1,14 @@
 <template>
-  <div class="home"></div>
+  <div class="container"></div>
   <h1>Esta es la vista Home</h1>
+  <NewTask />
 </template>
 
 <script>
 // @ is an alias to /src
 import { mapState, mapActions } from 'pinia';
 import taskStore from '@/store/task';
+import NewTask from '@/components/NewTask.vue';
 
 export default {
   name: 'HomeView',
@@ -22,5 +24,6 @@ export default {
     };
     this.fetchTasks(taskData.title);
   },
+  components: { NewTask },
 };
 </script>
