@@ -39,5 +39,36 @@ export default defineStore('tasks', {
         this.tasks.push(data[0]);
       }
     },
+    async updateTask(
+      title,
+      description,
+      priority,
+      estimate,
+      isComplete,
+    ) {
+      const { data, error } = await supabase
+        .from('tasks')
+        .update({
+          title,
+          description,
+          priority,
+          estimate,
+          isComplete,
+        })
+        .match({
+          title,
+          description,
+          priority,
+          estimate,
+          isComplete,
+        });
+      if (error) throw error;
+      else if (data.length) {
+        this.tasks.update(data[0]);
+      }
+    },
+    getTaskByID(taskId) {
+      return this.tasks.find((task) => task.id === taskId);
+    },
   },
 });

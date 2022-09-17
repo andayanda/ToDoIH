@@ -13,10 +13,16 @@
           >Description</label
         >
         <div class="col-sm-10">
-          <textarea name="description" rows="10" cols="30" v-model="description"> </textarea>
+          <textarea
+            name="description"
+            rows="10"
+            cols="30"
+            v-model="description"
+          >
+          </textarea>
         </div>
       </div>
-       <fieldset class="row mb-3">
+      <fieldset class="row mb-3">
         <legend class="col-form-label col-sm-2 pt-0">Priority</legend>
         <div class="col-sm-10">
           <div class="form-check">
@@ -55,7 +61,12 @@
           </div>
         </div>
       </fieldset>
-     <select class="form-select" size="3" aria-label="size 3 select example" v-model="estimate">
+      <select
+        class="form-select"
+        size="3"
+        aria-label="size 3 select example"
+        v-model="estimate"
+      >
         <option selected>Estimate time in days</option>
         <option value="1">One</option>
         <option value="2">Two</option>
@@ -63,7 +74,7 @@
         <option value="3">Four</option>
         <option value="3">Five</option>
       </select>
-     <div class="form-check">
+      <!-- <div class="form-check">
         <input
           class="form-check-input"
           type="checkbox"
@@ -71,16 +82,11 @@
           id="isComplete"
           v-model="isComplete"
         />
-        <label class="form-check-label" for="isComplete">
-         Completed
-        </label>
-      </div>
-      <p>{{ today }}</p>
-      <p>{{ expiration }}</p>
+        <label class="form-check-label" for="isComplete"> Completed </label>
+      </div> -->
     </form>
   </div>
   <button @click="handleCreateTask" class="btn btn-info">Add your task</button>
-
 </template>
 
 <script>
@@ -90,6 +96,15 @@ import userStore from '@/store/user';
 
 export default {
   name: 'NewTask.vue',
+  data() {
+    return {
+      title: '',
+      description: '',
+      priority: 1,
+      estimate: 1,
+      // isComplete: false,
+    };
+  },
 
   computed: {
     ...mapState(taskStore, ['tasks']),
@@ -104,7 +119,7 @@ export default {
         description: this.description,
         priority: this.priority,
         estimate: this.estimate,
-        isComplete: this.isComplete,
+        // isComplete: this.isComplete,
       };
       this.createTask(
         taskItem.userId,
@@ -112,7 +127,7 @@ export default {
         taskItem.description,
         taskItem.priority,
         taskItem.estimate,
-        taskItem.isComplete,
+        // taskItem.isComplete,
       );
     },
   },
