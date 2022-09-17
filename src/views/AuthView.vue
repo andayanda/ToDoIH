@@ -20,10 +20,8 @@ export default {
       confirmPassword: '',
     };
   },
-
   computed: {
     ...mapState(userStore, ['user']),
   },
-
 };
 </script>

@@ -52,6 +52,7 @@ export default {
         password: this.password,
       };
       this.signUp(userData.email, userData.password);
+      alert('Recuerde confirmar su email de registro');
     },
   },
 };
