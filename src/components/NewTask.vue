@@ -5,7 +5,7 @@
       <div class="row mb-3">
         <label for="title" class="col-sm-2 col-form-label">Tittle</label>
         <div class="col-sm-10">
-          <input type="title" class="form-control" id="title" />
+          <input type="title" class="form-control" id="title" v-model="title" />
         </div>
       </div>
       <div class="row mb-3">
@@ -13,48 +13,49 @@
           >Description</label
         >
         <div class="col-sm-10">
-          <textarea name="description" rows="10" cols="30"> </textarea>
+          <textarea name="description" rows="10" cols="30" v-model="description"> </textarea>
         </div>
       </div>
-      <fieldset class="row mb-3">
+       <fieldset class="row mb-3">
         <legend class="col-form-label col-sm-2 pt-0">Priority</legend>
         <div class="col-sm-10">
           <div class="form-check">
             <input
               class="form-check-input"
               type="radio"
-              name="gridRadios"
-              id="gridRadios1"
-              value="option1"
+              name="priority"
+              id="priority1"
+              value="1"
               checked=""
+              v-model="priority"
             />
-            <label class="form-check-label" for="gridRadios1"> Urgent </label>
+            <label class="form-check-label" for="priority1"> Urgent </label>
           </div>
           <div class="form-check">
             <input
               class="form-check-input"
               type="radio"
-              name="gridRadios"
-              id="gridRadios2"
-              value="option2"
+              name="priority"
+              id="priority2"
+              value="2"
+              v-model="priority"
             />
-            <label class="form-check-label" for="gridRadios2">
-              Important
-            </label>
+            <label class="form-check-label" for="priority2"> Important </label>
           </div>
           <div class="form-check">
             <input
               class="form-check-input"
               type="radio"
-              name="gridRadios"
-              id="gridRadios3"
-              value="option3"
+              name="priority"
+              id="priority3"
+              value="3"
+              v-model="priority"
             />
-            <label class="form-check-label" for="gridRadios3"> Can wait </label>
+            <label class="form-check-label" for="priority3"> Can wait </label>
           </div>
         </div>
       </fieldset>
-      <select class="form-select form-select-sm" aria-label=".form-select-sm">
+     <select class="form-select" size="3" aria-label="size 3 select example" v-model="estimate">
         <option selected>Estimate time in days</option>
         <option value="1">One</option>
         <option value="2">Two</option>
@@ -62,6 +63,18 @@
         <option value="3">Four</option>
         <option value="3">Five</option>
       </select>
+     <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value="true"
+          id="isComplete"
+          v-model="isComplete"
+        />
+        <label class="form-check-label" for="isComplete">
+         Completed
+        </label>
+      </div>
       <p>{{ today }}</p>
       <p>{{ expiration }}</p>
     </form>
@@ -77,6 +90,13 @@ import userStore from '@/store/user';
 
 export default {
   name: 'NewTask.vue',
+  data() {
+    return {
+      email: '',
+      password: '',
+      confirmPassword: '',
+    };
+  },
   computed: {
     ...mapState(taskStore, ['tasks']),
     ...mapState(userStore, ['user']),
@@ -86,11 +106,11 @@ export default {
     handleCreateTask() {
       const taskItem = {
         userId: this.user.id,
-        title: 'segunda tarea',
-        description: 'Bla Bla Bla',
-        priority: 1,
-        estimate: 2,
-        isComplete: false,
+        title: this.title,
+        description: this.description,
+        priority: this.priority,
+        estimate: this.estimate,
+        isComplete: this.isComplete,
       };
       this.createTask(
         taskItem.userId,
