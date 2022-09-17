@@ -80,7 +80,7 @@
     </form>
   </div>
   <button @click="handleCreateTask" class="btn btn-info">Add your task</button>
-  <!-- {{taskItem}} -->
+
 </template>
 
 <script>
@@ -90,13 +90,7 @@ import userStore from '@/store/user';
 
 export default {
   name: 'NewTask.vue',
-  data() {
-    return {
-      email: '',
-      password: '',
-      confirmPassword: '',
-    };
-  },
+
   computed: {
     ...mapState(taskStore, ['tasks']),
     ...mapState(userStore, ['user']),
