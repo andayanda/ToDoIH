@@ -1,7 +1,8 @@
 <template>
-  <div class="container"></div>
-  <h1>Esta es la vista Home</h1>
+  <div class="container">
+  <h1>My To-Do app</h1>
   <NewTask />
+</div>
 </template>
 
 <script>

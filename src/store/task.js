@@ -70,5 +70,36 @@ export default defineStore('tasks', {
     getTaskByID(taskId) {
       return this.tasks.find((task) => task.id === taskId);
     },
+    async deleteTask(
+      title,
+      description,
+      priority,
+      estimate,
+      isComplete,
+    ) {
+      const { data, error } = await supabase
+        .from('tasks')
+        .delete({
+          title,
+          description,
+          priority,
+          estimate,
+          isComplete,
+        })
+        .match({
+          title,
+          description,
+          priority,
+          estimate,
+          isComplete,
+        });
+      if (error) throw error;
+      else if (data.length) {
+        this.tasks.filter(data[0]);
+      }
+    },
+    // getTaskByID(taskId) {
+    //   return this.tasks.find((task) => task.id === taskId);
+    // },
   },
 });

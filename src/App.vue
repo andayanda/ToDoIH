@@ -1,6 +1,8 @@
 <template>
+  <div class="container">
   <NavBar></NavBar>
   <router-view />
+</div>
 </template>
 <script>
 import userStore from '@/store/user';

@@ -1,7 +1,8 @@
 <!-- eslint-disable vuejs-accessibility/label-has-for -->
 <template>
+  <SignIn></SignIn>
 <SignUp></SignUp>
-<SignIn></SignIn>
+
 </template>
 
 <script>

@@ -1,6 +1,5 @@
 <!-- eslint-disable vuejs-accessibility/label-has-for -->
 <template>
-
   <NewTask />
   <div class="form-check">
         <input

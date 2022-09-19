@@ -1,6 +1,6 @@
 <!-- eslint-disable vuejs-accessibility/label-has-for -->
 <template>
-  <div class="container">
+  <div class="box">
     <h2>Log In</h2>
     <form @submit.prevent="handleSignIn">
       <div class="mb-3">
@@ -11,9 +11,8 @@
         <label for="password" class="form-label">Password</label>
         <input id="password" type="password" class="form-control" v-model="password" />
       </div>
-    </form>
-  </div>
-  <button class="btn btn-primary" @click="handleSignIn">Sign In</button>
+    </form>  <button class="btn btn-primary" @click="handleSignIn">Sign In</button>
+</div>
 </template>
 
 <script>

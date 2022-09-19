@@ -31,7 +31,7 @@ export default {
 </script>
 <style>
   .navbar{
-   margin: 1em 2em;
+
    padding: 1em 2em;
   }
 </style>

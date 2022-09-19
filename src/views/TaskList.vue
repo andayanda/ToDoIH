@@ -1,7 +1,7 @@
 <template>
   <div>
-    <router-link v-for="item in tasks" :key="item.id" :to="`/task/${item.id}`">
-      <h2>{{ item.title }}</h2>
+    <router-link v-for="item in tasks" :key="item.id" :to="`/task/${item.id}` " class="itemBox">
+      <h4>{{ item.title }}</h4>
       <!-- Default dropend button -->
       <div class="btn-group dropend">
         <button
@@ -20,6 +20,7 @@
         </ul>
       </div>
       {{ item.insertedAt.substring(0, 10) }}
+      Priority:
 
       {{ item.priority }}
       <p>Tiempo estimado</p>
@@ -44,3 +45,11 @@ export default {
   },
 };
 </script>
+<style>
+  .itemBox {
+    display: flex;
+    justify-content: space-around;
+    text-decoration: none;
+   color:black;
+  }
+</style>

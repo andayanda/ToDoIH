@@ -1,72 +1,77 @@
+<!-- eslint-disable vuejs-accessibility/form-control-has-label -->
 <!-- eslint-disable vuejs-accessibility/label-has-for -->
 <template>
-  <div>
+  <div class="form">
     <form>
       <div class="row mb-3">
-        <label for="title" class="col-sm-2 col-form-label">Tittle</label>
-        <div class="col-sm-10">
-          <input type="title" class="form-control" id="title" v-model="title" />
+        <div>
+          <input
+            type="title"
+            class="form-control"
+            id="title"
+            v-model="title"
+            placeholder="Enter Task"
+          />
+          <label for="title" class="form-floating"></label>
         </div>
       </div>
-      <div class="row mb-3">
-        <label for="description" class="col-sm-2 col-form-label"
-          >Description</label
-        >
-        <div class="col-sm-10">
+      <div class="form-floating">
+        <div>
           <textarea
             name="description"
-            rows="10"
-            cols="30"
+            class="form-control"
+            placeholder="Leave a comment here"
+            id="description"
             v-model="description"
           >
           </textarea>
+          <label for="description" class="col-sm-2 col-form-label"></label>
         </div>
       </div>
-      <fieldset class="row mb-3">
-        <legend class="col-form-label col-sm-2 pt-0">Priority</legend>
-        <div class="col-sm-10">
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="priority"
-              id="priority1"
-              value="1"
-              checked=""
-              v-model="priority"
-            />
-            <label class="form-check-label" for="priority1"> Urgent </label>
+      <div class="row">
+        <fieldset class="col">
+          <!-- <legend class="col-form-label col-sm-2 pt-0">Priority</legend> -->
+          <div class="col-sm-6">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="priority"
+                id="priority1"
+                value="1"
+                checked=""
+                v-model="priority"
+              />
+              <label class="form-check-label" for="priority1"> Urgent </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="priority"
+                id="priority2"
+                value="2"
+                v-model="priority"
+              />
+              <label class="form-check-label" for="priority2">
+                Important
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="priority"
+                id="priority3"
+                value="3"
+                v-model="priority"
+              />
+              <label class="form-check-label" for="priority3"> Can wait </label>
+            </div>
           </div>
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="priority"
-              id="priority2"
-              value="2"
-              v-model="priority"
-            />
-            <label class="form-check-label" for="priority2"> Important </label>
-          </div>
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="priority"
-              id="priority3"
-              value="3"
-              v-model="priority"
-            />
-            <label class="form-check-label" for="priority3"> Can wait </label>
-          </div>
-        </div>
-      </fieldset>
-      <select
-        class="form-select"
-        size="3"
-        aria-label="size 3 select example"
-        v-model="estimate"
-      >
+        </fieldset>
+      <div class="col">
+      <select class="form-select col-sm-10" v-model="estimate">
         <option selected>Estimate time in days</option>
         <option value="1">One</option>
         <option value="2">Two</option>
@@ -74,6 +79,8 @@
         <option value="3">Four</option>
         <option value="3">Five</option>
       </select>
+    </div>
+      </div>
       <!-- <div class="form-check">
         <input
           class="form-check-input"
@@ -133,3 +140,12 @@ export default {
   },
 };
 </script>
+<style>
+  .container{
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+  .form {
+    margin-bottom: 3em;
+}
+</style>
