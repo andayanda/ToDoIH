@@ -68,7 +68,7 @@ export default defineStore('tasks', {
       }
     },
     getTaskByID(taskId) {
-      return this.tasks.find((task) => task.id === taskId);
+      return this.tasks.find((task) => task.id === parseInt(taskId, 10));
     },
     async deleteTask(
       title,
