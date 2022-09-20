@@ -1,9 +1,15 @@
 <template>
   <div>
-    <router-link v-for="item in tasks" :key="item.id" :to="`/task/${item.id}` " class="itemBox">
+    <router-link v-for="item in tasks" :key="item.id" :to="`/task/${item.id}` "
+     :class="{isImportant:item.priority ===1, isUrgent:item.priority ===2}"
+      class="itemBox">
       <h4>{{ item.title }}</h4>
-      <!-- Default dropend button -->
-      <div class="btn-group dropend">
+      {{ item.insertedAt.substring(0, 10) }}
+           <!-- {{ item.priority }} -->
+      <p>Tiempo estimado</p>
+      {{ item.estimate }} Días
+       <!-- Default dropend button -->
+       <div class="btn-group dropend">
         <button
           type="button"
           class="btn btn-secondary dropdown-toggle"
@@ -19,12 +25,6 @@
           <!-- Dropdown menu links -->
         </ul>
       </div>
-      {{ item.insertedAt.substring(0, 10) }}
-      Priority:
-
-      {{ item.priority }}
-      <p>Tiempo estimado</p>
-      {{ item.estimate }} Días
     </router-link>
   </div>
 </template>
@@ -51,5 +51,20 @@ export default {
     justify-content: space-around;
     text-decoration: none;
    color:black;
+   background-color: rgb(181, 181, 191);
+ margin: 1.5em;
+  }
+  .isImportant {
+    background-color: rgb(255, 0, 149);
+    color:aliceblue;
+     }
+  .isUrgent{
+    background-color: rgb(69, 177, 89);
+    color:aliceblue;
+     }
+  .isImportant a {
+    background-color: rgb(210, 210, 237);
+    border-color: black;
+    color:aliceblue;
   }
 </style>
