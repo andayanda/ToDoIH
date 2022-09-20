@@ -12,6 +12,7 @@
         <input id="password" type="password" class="form-control" v-model="password" />
       </div>
     </form>  <button class="btn btn-primary" @click="handleSignIn">Sign In</button>
+    <div></div>
 </div>
 </template>
 

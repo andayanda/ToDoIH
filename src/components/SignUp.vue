@@ -78,7 +78,7 @@ export default {
 <style>
 .box {
   max-width: 380px;
-}
-.box-container{
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>
