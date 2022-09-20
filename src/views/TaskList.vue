@@ -34,6 +34,7 @@
           <!-- Dropdown menu links -->
         </ul>
       </div>
+    <div class="close"></div>
     </router-link>
   </div>
 </template>
@@ -85,5 +86,9 @@ export default {
   background-color: rgb(210, 210, 237);
   border-color: black;
   color: aliceblue;
+}
+div.close:after{
+  display: inline-block;
+  content: "\00d7"; /* This will render the 'X' */
 }
 </style>
