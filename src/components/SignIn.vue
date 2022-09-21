@@ -7,12 +7,14 @@
         <label for="email" class="form-label">Email</label>
         <input id="email" type="email" class="form-control" v-model="email" />
       </div>
-      <div>
+      <div class="mb-3">
         <label for="password" class="form-label">Password</label>
         <input id="password" type="password" class="form-control" v-model="password" />
       </div>
-    </form>  <button class="btn btn-primary" @click="handleSignIn">Sign In</button>
-    <div></div>
+    </form>
+    <div> <button class="btn btn-primary" @click="handleSignIn">Sign In</button>
+    </div>
+
 </div>
 </template>
 
@@ -43,5 +45,3 @@ export default {
   },
 };
 </script>
-<style>
-</style>

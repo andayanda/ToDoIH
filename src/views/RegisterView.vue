@@ -1,23 +1,17 @@
 <!-- eslint-disable vuejs-accessibility/label-has-for -->
 <template>
-  <SignIn></SignIn>
-  <router-link
-  :to="`/register`">
-  <div>
-  <p>Aún no estás registrado?</p>
-</div>
-</router-link>
+<SignUp></SignUp>
 
 </template>
 
 <script>
 import { mapState } from 'pinia';
 import userStore from '@/store/user';
-import SignIn from '../components/SignIn.vue';
+import SignUp from '../components/SignUp.vue';
 
 export default {
-  name: 'AuthView.vue',
-  components: { SignIn },
+  name: 'RegisterView.vue',
+  components: { SignUp },
   data() {
     return {
       email: '',
