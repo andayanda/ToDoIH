@@ -75,10 +75,3 @@ export default {
   },
 };
 </script>
-<style>
-.box {
-  max-width: 380px;
-  margin-left: auto;
-  margin-right: auto;
-}
-</style>
