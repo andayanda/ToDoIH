@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue';
 import AuthView from '../views/AuthView.vue';
 import TaskList from '../views/TaskList.vue';
 import EditTaskView from '../views/EditTaskView.vue';
+import RegisterView from '../views/RegisterView.vue';
 
 const routes = [
   {
@@ -14,6 +15,11 @@ const routes = [
     path: '/auth',
     name: 'auth',
     component: AuthView,
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: RegisterView,
   },
   {
     path: '/tasks',

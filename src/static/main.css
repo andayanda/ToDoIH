@@ -1,0 +1,15 @@
+.modal-overlay{
+    position: absolute;
+    top: 0 ;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(0,0,0, 0.4);
+
+  }
+  .box {
+    max-width: 380px;
+    margin-left: auto;
+    margin-right: auto;
+  }
