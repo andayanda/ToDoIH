@@ -34,7 +34,7 @@
           <!-- Dropdown menu links -->
         </ul>
       </div>
-      <button @click.prevent="handleDeleteTask(item.id)" class="close"></button>
+      <button @click.prevent="handleDeleteTask(item.id)">X</button>
     </router-link>
   </div>
 </template>
@@ -88,8 +88,5 @@ export default {
   border-color: black;
   color: aliceblue;
 }
-div.close:after {
-  display: inline-block;
-  content: '\00d7'; /* This will render the 'X' */
-}
+
 </style>
