@@ -77,6 +77,7 @@ export default {
         editedTask.description,
         editedTask.isComplete,
       );
+      this.$router.push({ path: '/tasks' });
     },
   },
   created() {

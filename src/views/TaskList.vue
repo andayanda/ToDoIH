@@ -34,7 +34,7 @@
           <!-- Dropdown menu links -->
         </ul>
       </div>
-    <div class="close"></div>
+      <button @click.prevent="handleDeleteTask(item.id)" class="close"></button>
     </router-link>
   </div>
 </template>
@@ -51,17 +51,18 @@ export default {
     ...mapState(userStore, ['user']),
   },
   methods: {
-    ...mapActions(taskStore, ['fetchTasks']),
+    ...mapActions(taskStore, ['fetchTasks', 'deleteTask']),
+    handleDeleteTask(taskId) {
+      this.deleteTask(taskId);
+    },
     noTasks() {
       if (this.tasks.length < 1) {
-        console.log('Todavía no has creado tareas');
+        alert('Todavía no has creado tareas'); // este alert no funciona
       }
     },
-    // created() {
-    //   if (this.tasks.length < 1) {
-    //     alert('Todavía no has creado tareas');
-    //   }
-    // },
+  },
+  created() {
+    this.fetchTasks();
   },
 };
 </script>
@@ -87,8 +88,8 @@ export default {
   border-color: black;
   color: aliceblue;
 }
-div.close:after{
+div.close:after {
   display: inline-block;
-  content: "\00d7"; /* This will render the 'X' */
+  content: '\00d7'; /* This will render the 'X' */
 }
 </style>

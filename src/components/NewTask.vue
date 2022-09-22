@@ -1,5 +1,5 @@
-<!-- eslint-disable vuejs-accessibility/form-control-has-label -->
 <!-- eslint-disable vuejs-accessibility/label-has-for -->
+<!-- eslint-disable vuejs-accessibility/form-control-has-label -->
 <template>
   <div class="form">
     <form>
@@ -30,7 +30,6 @@
       </div>
       <div class="row">
         <fieldset class="col">
-          <!-- <legend class="col-form-label col-sm-2 pt-0">Priority</legend> -->
           <div class="col-sm-6">
             <div class="form-check">
               <input
@@ -81,16 +80,7 @@
       </select>
     </div>
       </div>
-      <!-- <div class="form-check">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          value="true"
-          id="isComplete"
-          v-model="isComplete"
-        />
-        <label class="form-check-label" for="isComplete"> Completed </label>
-      </div> -->
+
     </form>
   </div>
   <button @click="handleCreateTask" class="btn btn-info">Add your task</button>
@@ -109,7 +99,6 @@ export default {
       description: '',
       priority: 1,
       estimate: 1,
-      // isComplete: false,
     };
   },
 
@@ -126,7 +115,6 @@ export default {
         description: this.description,
         priority: this.priority,
         estimate: this.estimate,
-        // isComplete: this.isComplete,
       };
       this.createTask(
         taskItem.userId,
@@ -134,8 +122,8 @@ export default {
         taskItem.description,
         taskItem.priority,
         taskItem.estimate,
-        // taskItem.isComplete,
       );
+      this.$router.push({ path: '/tasks' });
     },
   },
 };

@@ -22,7 +22,6 @@ export default defineStore('tasks', {
       description,
       priority,
       estimate,
-      isComplete,
     ) {
       const { data, error } = await supabase.from('tasks').insert([
         {
@@ -31,7 +30,6 @@ export default defineStore('tasks', {
           description,
           priority,
           estimate,
-          isComplete,
         },
       ]);
       if (error) throw error;
@@ -39,22 +37,27 @@ export default defineStore('tasks', {
         this.tasks.push(data[0]);
       }
     },
+    // update task
     async updateTask(id, title, description, isComplete) {
+      const dataToUpdate = {};
+      if (title !== '') {
+        dataToUpdate.title = title;
+      }
+      if (description !== '') {
+        dataToUpdate.description = description;
+      }
+      if (isComplete !== false) {
+        dataToUpdate.isComplete = isComplete;
+      }
       const { data, error } = await supabase
         .from('tasks')
-        .update({
-          title,
-          description,
-          isComplete,
-        })
+        .update(dataToUpdate)
         .match({
           id,
         });
       if (error) throw error;
       else if (data.length) {
-        const taskIndex = this.tasks.findIndex(
-          (task) => task.id === id,
-        );
+        const taskIndex = this.tasks.findIndex((task) => task.id === id);
         this.tasks[taskIndex].title = data[0].title;
         this.tasks[taskIndex].description = data[0].description;
         this.tasks[taskIndex].isComplete = data[0].isComplete;
@@ -63,30 +66,20 @@ export default defineStore('tasks', {
     getTaskByID(taskId) {
       return this.tasks.find((task) => task.id === parseInt(taskId, 10));
     },
-    async deleteTask(title, description, priority, estimate, isComplete) {
+    // delete task
+    async deleteTask(id) {
       const { data, error } = await supabase
         .from('tasks')
-        .delete({
-          title,
-          description,
-          priority,
-          estimate,
-          isComplete,
-        })
+        .delete()
         .match({
-          title,
-          description,
-          priority,
-          estimate,
-          isComplete,
+          id,
         });
       if (error) throw error;
       else if (data.length) {
-        this.tasks.filter(data[0]);
+        const taskIndex = this.tasks.findIndex((task) => task.id === id);
+        this.tasks.splice(taskIndex, 1);
       }
     },
-    // getTaskByID(taskId) {
-    //   return this.tasks.find((task) => task.id === taskId);
-    // },
+
   },
 });
