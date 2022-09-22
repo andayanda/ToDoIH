@@ -1,6 +1,8 @@
 <template>
-  <NavBar></NavBar>
-  <router-view />
+  <div class="container">
+    <NavBar></NavBar>
+    <router-view />
+  </div>
 </template>
 <script>
 import userStore from '@/store/user';
@@ -9,6 +11,7 @@ import NavBar from './components/NavBar.vue';
 
 export default {
   name: 'App',
+
   components: {
     NavBar,
   },
