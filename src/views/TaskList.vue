@@ -1,6 +1,9 @@
 <!-- eslint-disable no-alert -->
 <!-- eslint-disable no-alert -->
-<template>
+ <template >
+ <p v-if="!tasks.length">
+Todavía no tienes tareas</p>
+
   <div>
     <router-link
       v-for="item in tasks"
@@ -9,16 +12,23 @@
       :class="{
         isImportant: item.priority === 1,
         isUrgent: item.priority === 2,
+        isComplete: item.isComplete === true,
       }"
       class="itemBox"
     >
       <h4>{{ item.title }}</h4>
-      {{ item.insertedAt.substring(0, 10) }}
-      <!-- {{ item.priority }} -->
-      <p>Tiempo estimado</p>
-      {{ item.estimate }} Días
+
+      <p>Tiempo estimado:
+      {{ item.estimate }} Días</p>
+      <!-- <p v-if="endDate!==null"> Vencimiento: -->
+      <!-- {{ item.insertedAt.substring(0, 10) }} -->
+     <!-- v-if="this.item.endDate !== 'null'" -->
+      <p v-if="item.endDate" >Vencimiento:
+      {{ item.endDate }}</p>
+      <p v-else></p>
+      <!-- {{item.insertedAt.substring(0, 10) - item.endDate}}  NAN-->
       <!-- Default dropend button -->
-      <div class="btn-group dropend">
+      <div class="btn-group dropend" v-if="item.description">
         <button
           type="button"
           class="btn btn-secondary dropdown-toggle"
@@ -34,7 +44,7 @@
           <!-- Dropdown menu links -->
         </ul>
       </div>
-      <button @click.prevent="handleDeleteTask(item.id)" class="close"></button>
+      <button @click.prevent="handleDeleteTask(item.id)" class="btn-secondary">X</button>
     </router-link>
   </div>
 </template>
@@ -49,16 +59,14 @@ export default {
   computed: {
     ...mapState(taskStore, ['tasks']),
     ...mapState(userStore, ['user']),
+    // timeLeft() {
+    //   return (this.insertedAt.substring(0, 10)) - (this.endDate)
+    // },
   },
   methods: {
     ...mapActions(taskStore, ['fetchTasks', 'deleteTask']),
     handleDeleteTask(taskId) {
       this.deleteTask(taskId);
-    },
-    noTasks() {
-      if (this.tasks.length < 1) {
-        alert('Todavía no has creado tareas'); // este alert no funciona
-      }
     },
   },
   created() {
@@ -83,13 +91,17 @@ export default {
   background-color: rgb(69, 177, 89);
   color: aliceblue;
 }
+.isComplete{
+  text-decoration: line-through;
+  background-color: grey;
+  color: black;
+}
 .isImportant a {
   background-color: rgb(210, 210, 237);
   border-color: black;
   color: aliceblue;
 }
-div.close:after {
-  display: inline-block;
-  content: '\00d7'; /* This will render the 'X' */
+.close{
+ color: black;
 }
 </style>

@@ -3,7 +3,7 @@
   <SignIn></SignIn>
   <router-link :to="`/register`">
     <div>
-      <p>Aún no estás registrado?</p>
+      <h3>Don't have an account yet?</h3>
     </div>
   </router-link>
 </template>

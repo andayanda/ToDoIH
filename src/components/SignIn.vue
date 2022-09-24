@@ -1,6 +1,6 @@
 <!-- eslint-disable vuejs-accessibility/label-has-for -->
 <template>
-  <div class="box">
+  <div class="modal-container">
     <h2>Log In</h2>
     <form @submit.prevent="handleSignIn">
       <div class="mb-3">
@@ -45,3 +45,18 @@ export default {
   },
 };
 </script>
+<style>
+  .modal-container{
+    width: 90%;
+    background-color: #C8E667;
+    margin: auto;
+    max-width: 600px;
+    max-height: 80%;
+    padding: 3em 2.5em;
+    border-radius: 10px;
+    display: grid;
+    gap: 1em;
+    grid-auto-columns: 100%;
+    place-items: center;
+}
+</style>

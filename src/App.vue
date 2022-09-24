@@ -31,7 +31,6 @@ export default {
   },
   watch: {
     user() {
-      console.log('?estamos en el watch');
       if (this.user) {
         // redirect them to logout if the user is not there
 
@@ -51,7 +50,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #096C7D;
 }
 
 nav {

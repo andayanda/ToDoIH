@@ -1,6 +1,6 @@
 <!-- eslint-disable vuejs-accessibility/label-has-for -->
 <template>
-  <div class="box">
+  <div class="modal-container">
     <h2>Sign up for an account</h2>
     <form>
       <div class="box-container mb-3">

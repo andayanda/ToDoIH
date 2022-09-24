@@ -28,7 +28,9 @@
           <label for="description" class="col-sm-2 col-form-label"></label>
         </div>
       </div>
-      <div class="row">
+    <label for="endDate">End Date:</label>
+  <input type="date" id="endDate" name="endDate"  v-model="endDate">
+       <div class="row">
         <fieldset class="col">
           <div class="col-sm-6">
             <div class="form-check">
@@ -97,6 +99,7 @@ export default {
     return {
       title: '',
       description: '',
+      endDate: null,
       priority: 1,
       estimate: 1,
     };
@@ -115,6 +118,7 @@ export default {
         description: this.description,
         priority: this.priority,
         estimate: this.estimate,
+        endDate: this.endDate,
       };
       this.createTask(
         taskItem.userId,
@@ -122,6 +126,7 @@ export default {
         taskItem.description,
         taskItem.priority,
         taskItem.estimate,
+        taskItem.endDate,
       );
       this.$router.push({ path: '/tasks' });
     },
