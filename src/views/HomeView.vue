@@ -1,8 +1,8 @@
 <template>
-  <div class="container">
+
   <h1>My To-Do app</h1>
   <NewTask />
-</div>
+
 </template>
 
 <script>

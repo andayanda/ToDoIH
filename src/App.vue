@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <!-- <img src="../src/assets/post-it.svg" alt=""> -->
     <NavBar></NavBar>
     <router-view />
   </div>
@@ -52,17 +53,20 @@ export default {
   text-align: center;
   color: #096C7D;
 }
-
+.container{
+  background-image: url("./assets/post-it.svg");
+  background-repeat: no-repeat, repeat;
+}
 nav {
   padding: 30px;
 }
 
 nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #99483D;
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  color:#829936;
 }
 </style>

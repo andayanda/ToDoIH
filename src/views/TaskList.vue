@@ -20,9 +20,8 @@ Todavía no tienes tareas</p>
 
       <p>Tiempo estimado:
       {{ item.estimate }} Días</p>
-      <!-- <p v-if="endDate!==null"> Vencimiento: -->
-      <!-- {{ item.insertedAt.substring(0, 10) }} -->
-     <!-- v-if="this.item.endDate !== 'null'" -->
+          <!-- {{ item.insertedAt.substring(0, 10) }} -->
+
       <p v-if="item.endDate" >Vencimiento:
       {{ item.endDate }}</p>
       <p v-else></p>
@@ -84,12 +83,13 @@ export default {
   margin: 1.5em;
 }
 .isImportant {
-  background-color: rgb(255, 0, 149);
+  background-color: #FC3F26;
   color: aliceblue;
 }
 .isUrgent {
-  background-color: rgb(69, 177, 89);
-  color: aliceblue;
+  background-color: #CAFC26;
+  color:#0D6EFD
+
 }
 .isComplete{
   text-decoration: line-through;

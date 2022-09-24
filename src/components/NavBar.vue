@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar" style="background-color: #e3f2fd;"
+  <nav class="navbar"
    v-if="user !== null"> <!--Cuando el usuario esté registrado saldra este boton de logout-->
    <div class="container-fluid">
     <router-Link to="/" class="navbar-brand">Home</router-Link>
@@ -31,7 +31,7 @@ export default {
 </script>
 <style>
   .navbar{
-
+    background-color: #7ea8e68f;
    padding: 1em 2em;
   }
 </style>
