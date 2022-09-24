@@ -31,12 +31,14 @@ export default {
   },
   watch: {
     user() {
-      if (!this.user) {
+      console.log('?estamos en el watch');
+      if (this.user) {
         // redirect them to logout if the user is not there
-        this.$router.push({ path: '/auth' });
+
+        this.$router.push({ path: '/' });
       } else {
         // continue to dashboard
-        this.$router.push({ path: '/' });
+        this.$router.push({ path: '/auth' });
       }
     },
   },

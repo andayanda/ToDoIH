@@ -5,7 +5,7 @@ import supabase from '../supabase/index';
 
 export default defineStore('user', {
   state: () => ({
-    user: null,
+    user: undefined,
   }),
 
   actions: {
