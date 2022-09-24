@@ -1,32 +1,18 @@
 <!-- eslint-disable vuejs-accessibility/label-has-for -->
 <template>
   <SignIn></SignIn>
-  <router-link
-  :to="`/register`">
-  <div>
-  <p>Aún no estás registrado?</p>
-</div>
-</router-link>
-
+  <router-link :to="`/register`">
+    <div>
+      <p>Aún no estás registrado?</p>
+    </div>
+  </router-link>
 </template>
 
 <script>
-import { mapState } from 'pinia';
-import userStore from '@/store/user';
 import SignIn from '../components/SignIn.vue';
 
 export default {
-  name: 'AuthView.vue',
+  name: 'AuthView',
   components: { SignIn },
-  data() {
-    return {
-      email: '',
-      password: '',
-      confirmPassword: '',
-    };
-  },
-  computed: {
-    ...mapState(userStore, ['user']),
-  },
 };
 </script>
