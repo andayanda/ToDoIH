@@ -24,6 +24,9 @@
       <button class="btn btn-primary" @click="handleSignInGoogle">
         Sign In with google account
       </button>
+      <button class="btn btn-primary" @click="handleRresetPass">
+        Forgotten Password?
+      </button>
     </div>
   </div>
 </template>
@@ -44,7 +47,7 @@ export default {
     ...mapState(userStore, ['user']),
   },
   methods: {
-    ...mapActions(userStore, ['signIn', 'signInWithGoogle']),
+    ...mapActions(userStore, ['signIn', 'signInWithGoogle', 'resetPass']),
     handleSignIn() {
       const userData = {
         email: this.email,
@@ -54,6 +57,13 @@ export default {
     },
     handleSignInGoogle() {
       this.signInWithGoogle();
+    },
+    handleRresetPass() {
+      const userData = {
+        email: this.email,
+      };
+      this.resetPass(userData.email);
+      alert('Please check you e-mail');
     },
   },
 };

@@ -62,8 +62,7 @@ export default {
     ...mapActions(userStore, ['signUp']),
     handleSignUp() {
       if (this.password !== this.confirmPassword) {
-        console.log('las contraseñas no coinciden');
-        return;
+        alert('las contraseñas no coinciden');
       }
       const userData = {
         email: this.email,
