@@ -39,6 +39,14 @@ export default defineStore('user', {
       if (error) throw error;
       if (user) this.user = user;
     },
+    async updateUser(accessToken, password) {
+      const { user, error } = await supabase.auth.api.updateUser({
+        accessToken,
+        password,
+      });
+      if (error) throw error;
+      if (user) this.user = user;
+    },
     async signInWithGoogle() {
       const { user, error } = await supabase.auth.signIn({
         provider: 'google',
