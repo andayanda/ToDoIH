@@ -9,13 +9,23 @@
       </div>
       <div class="mb-3">
         <label for="password" class="form-label">Password</label>
-        <input id="password" type="password" class="form-control" v-model="password" />
+        <input
+          id="password"
+          type="password"
+          class="form-control"
+          v-model="password"
+        />
       </div>
     </form>
-    <div> <button class="btn btn-primary" @click="handleSignIn">Sign In</button>
+    <div>
+      <button class="btn btn-primary" @click="handleSignIn">Sign In</button>
     </div>
-
-</div>
+    <div>
+      <button class="btn btn-primary" @click="handleSignInGoogle">
+        Sign In with google account
+      </button>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -34,7 +44,7 @@ export default {
     ...mapState(userStore, ['user']),
   },
   methods: {
-    ...mapActions(userStore, ['signIn']),
+    ...mapActions(userStore, ['signIn', 'signInWithGoogle']),
     handleSignIn() {
       const userData = {
         email: this.email,
@@ -42,21 +52,24 @@ export default {
       };
       this.signIn(userData.email, userData.password);
     },
+    handleSignInGoogle() {
+      this.signInWithGoogle();
+    },
   },
 };
 </script>
 <style>
-  .modal-container{
-    width: 90%;
-    background-color: #C8E667;
-    margin: auto;
-    max-width: 600px;
-    max-height: 80%;
-    padding: 3em 2.5em;
-    border-radius: 10px;
-    display: grid;
-    gap: 1em;
-    grid-auto-columns: 100%;
-    place-items: center;
+.modal-container {
+  width: 90%;
+  background-color: #c8e667;
+  margin: auto;
+  max-width: 600px;
+  max-height: 80%;
+  padding: 3em 2.5em;
+  border-radius: 10px;
+  display: grid;
+  gap: 1em;
+  grid-auto-columns: 100%;
+  place-items: center;
 }
 </style>
