@@ -2,7 +2,8 @@
   <nav class="navbar"
    v-if="user !== null"> <!--Cuando el usuario esté registrado saldra este boton de logout-->
    <div class="container-fluid">
-    <router-Link to="/" class="navbar-brand">Home</router-Link>
+    <router-Link to="/" class="navbar-brand">
+      <img src="../assets/Pencil.jpg" class="img-fluid" alt="..."/>Home</router-Link>
     <router-Link to="/tasks" class="navbar-brand">Tasks</router-Link>
     <button class="navbar-toggler" @click="handleSignOut">Sign Out</button>
    </div>

@@ -1,6 +1,7 @@
 <template>
-  <div class="container">
+  <div class="container shadow-sm p-3 mb-5 bg-body rounded">
     <!-- <img src="../src/assets/post-it.svg" alt=""> -->
+    <AppHeader></AppHeader>
     <NavBar></NavBar>
     <router-view />
   </div>
@@ -9,12 +10,14 @@
 import userStore from '@/store/user';
 import { mapState, mapActions } from 'pinia';
 import NavBar from './components/NavBar.vue';
+import AppHeader from './components/AppHeader.vue';
 
 export default {
   name: 'App',
 
   components: {
     NavBar,
+    AppHeader,
   },
   computed: {
     ...mapState(userStore, ['user']),
@@ -52,10 +55,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #096C7D;
-}
-.container{
-  background-image: url("./assets/post-it.svg");
-  background-repeat: no-repeat, repeat;
+  background-color: #abc7a93b;
 }
 nav {
   padding: 30px;

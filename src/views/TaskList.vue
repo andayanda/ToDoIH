@@ -83,7 +83,7 @@ export default {
   margin: 1.5em;
 }
 .isImportant {
-  background-color: #FC3F26;
+  background-color: #fc3f26bd;
   color: aliceblue;
 }
 .isUrgent {
