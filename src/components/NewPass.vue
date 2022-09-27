@@ -12,6 +12,15 @@
             v-model="password"
             />
         </div>
+        <div class="mb-3">
+        <label for="confirmPassword" class="form-label">Confirm Password</label>
+        <input
+          type="confirmPassword"
+          class="form-control"
+          id="confirmPassword"
+          v-model="confirmPassword"
+        />
+      </div>
         </form>
     </div>
 </template>
@@ -25,6 +34,7 @@ export default {
   data() {
     return {
 
+      accessToken: '',
       password: '',
     };
   },
@@ -32,13 +42,16 @@ export default {
     ...mapState(userStore, ['user']),
   },
   methods: {
-    ...mapActions(userStore, 'newPass'),
+    ...mapActions(userStore, ['newPass']),
     handleNewPass() {
+      if (this.password !== this.confirmPassword) {
+        alert('las contraseñas no coinciden');
+      }
       const userData = {
         accessToken: this.accessToken,
         password: this.password,
       };
-      this.updateUser(userData.password);
+      this.updatePass(userData.accessToken, userData.password);
     },
   },
 };

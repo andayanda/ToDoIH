@@ -35,19 +35,23 @@ export default defineStore('user', {
       if (user) this.user = user;
     },
     async resetPass(email) {
-      const { user, error } = await supabase.auth.api.resetPasswordForEmail(email);
+      // esta parte funciona bien con Netlify
+      const { user, error } = await supabase.auth.api.resetPasswordForEmail(
+        email,
+      );
       if (error) throw error;
       if (user) this.user = user;
     },
-    async updateUser(accessToken, password) {
-      const { user, error } = await supabase.auth.api.updateUser({
-        accessToken,
+    async updatePass(accessToken, password) {
+      // esta parte no linka bien; manda a localhost
+      const { user, error } = await supabase.auth.api.updateUser(accessToken, {
         password,
       });
       if (error) throw error;
       if (user) this.user = user;
     },
     async signInWithGoogle() {
+      // esta parte no linka bien;
       const { user, error } = await supabase.auth.signIn({
         provider: 'google',
       });
