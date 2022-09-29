@@ -1,9 +1,11 @@
 <template>
+  <div class="big">
   <div class="container shadow-sm p-3 mb-5 bg-body rounded">
     <AppHeader></AppHeader>
     <NavBar></NavBar>
     <router-view />
   </div>
+</div>
 </template>
 <script>
 import userStore from '@/store/user';
@@ -27,7 +29,6 @@ export default {
   async created() {
     try {
       await this.fetchUser(); // here we call fetch user
-      console.log(this.user);
     } catch (e) {
       console.error(e);
     }
@@ -54,8 +55,13 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #096c7d;
-  background-color: #abc7a93b;
+  background-color: #255c213b;
 }
+.big {
+  padding-top: 2em;
+    min-height: 100vh;
+}
+
 nav {
   padding: 30px;
 }

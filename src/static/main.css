@@ -1,6 +1,9 @@
 *{
   color: #48483D;
 }
+body {
+  background-color: aqua;
+}
 
 .modal-overlay{
     position: absolute;
