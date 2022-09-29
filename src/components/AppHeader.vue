@@ -9,11 +9,3 @@ export default {
   name: 'appHeader.vue',
 };
 </script>
-
-<style scoped>
-  .header {
-   /* background: url(../assets/espiral.jpg);
-  background-repeat: no-repeat;
-  background-size: auto; */
-  }
-</style>

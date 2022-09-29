@@ -2,7 +2,7 @@
 <template>
   <div class="modal-container">
     <h2>Log In</h2>
-    <form @submit.prevent="handleSignIn">
+    <form @submit.prevent="handleSignIn" class="was-validated" >
       <div class="mb-3">
         <label for="email" class="form-label">Email</label>
         <input id="email" type="email" class="form-control" v-model="email" />
@@ -14,19 +14,15 @@
           type="password"
           class="form-control"
           v-model="password"
+          @keyup.enter="handleSignIn"
         />
+        <div class="valid-feedback">Valid.</div>
+    <div class="invalid-feedback">Please fill out this field.</div>
       </div>
     </form>
     <div>
-      <button class="btn btn-primary" @click="handleSignIn">Sign In</button>
-    </div>
-    <div>
-      <button class="btn btn-primary" @click="handleSignInGoogle">
-        Sign In with google account
-      </button>
-      <button class="btn btn-primary" @click="handleRresetPass">
-        Forgotten Password?
-      </button>
+      <button class="btn btn-primary" @click="handleSignIn"
+     >Sign In</button>
     </div>
   </div>
 </template>
@@ -63,7 +59,7 @@ export default {
         email: this.email,
       };
       this.resetPass(userData.email);
-      alert('Please check you e-mail');
+      alert(`Password reset email sent to: ${userData.email}`);
     },
   },
 };

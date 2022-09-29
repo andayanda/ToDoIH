@@ -2,8 +2,9 @@
 <template>
   <div class="modal-container">
     <h2>Sign up for an account</h2>
+        <label for="password" class="form-label"  pattern=".{6,}">Password</label>
     <form>
-      <div class="box-container mb-3">
+      <div class="mb-3">
         <label for="email" class="form-label">Email address</label>
         <input
           type="email"
@@ -17,13 +18,16 @@
         </div>
       </div>
       <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
+        <label for="password" class="form-label"  pattern=".{6,}">Password</label>
         <input
           type="password"
           class="form-control"
           id="password"
           v-model="password"
         />
+        <div id="pswHelp" class="form-text">
+         Minimum 6 characters
+        </div>
       </div>
       <div class="mb-3">
         <label for="confirmPassword" class="form-label">Confirm Password</label>
@@ -32,6 +36,7 @@
           class="form-control"
           id="confirmPassword"
           v-model="confirmPassword"
+          @keyup.enter="handleSignUp"
         />
       </div>
     </form>
@@ -69,7 +74,7 @@ export default {
         password: this.password,
       };
       this.signUp(userData.email, userData.password);
-      alert('Recuerde confirmar su email de registro');
+      alert('Gracias por registrarse. Recuerde confirmar su email de registro');
     },
   },
 };

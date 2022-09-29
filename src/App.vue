@@ -1,6 +1,5 @@
 <template>
   <div class="container shadow-sm p-3 mb-5 bg-body rounded">
-    <!-- <img src="../src/assets/post-it.svg" alt=""> -->
     <AppHeader></AppHeader>
     <NavBar></NavBar>
     <router-view />
@@ -8,7 +7,6 @@
 </template>
 <script>
 import userStore from '@/store/user';
-import supabase from '@/supabase/index';
 import { mapState, mapActions } from 'pinia';
 import NavBar from './components/NavBar.vue';
 import AppHeader from './components/AppHeader.vue';
@@ -30,20 +28,6 @@ export default {
     try {
       await this.fetchUser(); // here we call fetch user
       console.log(this.user);
-      supabase.auth.onAuthStateChange(async (event, session) => {
-        if (event === 'PASSWORD_RECOVERY') {
-          console.log(event, session);
-          //   const newPassword = prompt(
-          //     'What would you like your new password to be?'
-          //   );
-          //   const { data, error } = await supabase.auth.update({
-          //     password: newPassword,
-          //   });
-
-          //   if (data) alert('Password updated successfully!');
-          //   if (error) alert('There was an error updating your password.');
-        }
-      });
     } catch (e) {
       console.error(e);
     }
