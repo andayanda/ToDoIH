@@ -1,5 +1,6 @@
 <template>
-  <div class="container">
+  <div class="container shadow-sm p-3 mb-5 bg-body rounded">
+    <AppHeader></AppHeader>
     <NavBar></NavBar>
     <router-view />
   </div>
@@ -8,12 +9,14 @@
 import userStore from '@/store/user';
 import { mapState, mapActions } from 'pinia';
 import NavBar from './components/NavBar.vue';
+import AppHeader from './components/AppHeader.vue';
 
 export default {
   name: 'App',
 
   components: {
     NavBar,
+    AppHeader,
   },
   computed: {
     ...mapState(userStore, ['user']),
@@ -31,7 +34,6 @@ export default {
   },
   watch: {
     user() {
-      console.log('?estamos en el watch');
       if (this.user) {
         // redirect them to logout if the user is not there
 
@@ -51,19 +53,19 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #096c7d;
+  background-color: #abc7a93b;
 }
-
 nav {
   padding: 30px;
 }
 
 nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #99483d;
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  color: #829936;
 }
 </style>

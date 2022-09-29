@@ -21,14 +21,16 @@
     >
     </textarea>
   </div>
+  <label for="endDate">End Date:</label>
+  <input type="date" id="endDate" name="endDate"  v-model="endDate">
   <div class="col">
       <select class="form-select col-sm-10" v-model="estimate">
         <option value="">Estimate time in days</option>
         <option value="1">One</option>
         <option value="2">Two</option>
         <option value="3">Three</option>
-        <option value="3">Four</option>
-        <option value="3">Five</option>
+        <option value="4">Four</option>
+        <option value="5">Five</option>
       </select>
     </div>
    <div class="form-check">
@@ -39,7 +41,7 @@
           id="isComplete"
           v-model="isComplete"
         />
-        <label class="form-check-label" for="isComplete"> Completed </label>
+        <label class="form-check-label" for="isComplete"> Is it Completed? </label>
       </div>
   <button @click="handleUpdateTask" class="btn btn-info">
     Update your task
@@ -58,6 +60,8 @@ export default {
       title: '',
       description: '',
       isComplete: false,
+      endDate: '',
+      estimate: 0,
     };
   },
   methods: {
@@ -68,6 +72,8 @@ export default {
         title: this.title,
         description: this.description,
         isComplete: this.isComplete,
+        endDate: this.endDate,
+        estimate: this.estimate,
 
       };
       console.log(editedTask);
@@ -76,6 +82,8 @@ export default {
         editedTask.title,
         editedTask.description,
         editedTask.isComplete,
+        editedTask.endDate,
+        editedTask.estimate,
       );
       this.$router.push({ path: '/tasks' });
     },

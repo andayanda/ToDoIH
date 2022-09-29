@@ -28,6 +28,7 @@
           <label for="description" class="col-sm-2 col-form-label"></label>
         </div>
       </div>
+
       <div class="row">
         <fieldset class="col">
           <div class="col-sm-6">
@@ -69,18 +70,21 @@
             </div>
           </div>
         </fieldset>
-      <div class="col">
-      <select class="form-select col-sm-10" v-model="estimate">
-        <option selected>Estimate time in days</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-        <option value="3">Four</option>
-        <option value="3">Five</option>
-      </select>
-    </div>
+        <div class="col">
+          <select class="form-select col-sm-10" v-model="estimate">
+            <option selected value="0">Estimate time in days</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+            <option value="3">Four</option>
+            <option value="3">Five</option>
+          </select>
+        </div>
+        <div class="col-sm-6">
+          <label for="endDate" style="margin:1em">End Date:  </label>
+          <input type="date" id="endDate" name="endDate" v-model="endDate" />
+        </div>
       </div>
-
     </form>
   </div>
   <button @click="handleCreateTask" class="btn btn-info">Add your task</button>
@@ -97,8 +101,9 @@ export default {
     return {
       title: '',
       description: '',
+      endDate: null,
       priority: 1,
-      estimate: 1,
+      estimate: 0,
     };
   },
 
@@ -115,6 +120,7 @@ export default {
         description: this.description,
         priority: this.priority,
         estimate: this.estimate,
+        endDate: this.endDate,
       };
       this.createTask(
         taskItem.userId,
@@ -122,6 +128,7 @@ export default {
         taskItem.description,
         taskItem.priority,
         taskItem.estimate,
+        taskItem.endDate,
       );
       this.$router.push({ path: '/tasks' });
     },
@@ -129,11 +136,11 @@ export default {
 };
 </script>
 <style>
-  .container{
-    margin-top: 2em;
-    margin-bottom: 2em;
-  }
-  .form {
-    margin-bottom: 3em;
+.container {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+.form {
+  margin-bottom: 3em;
 }
 </style>
