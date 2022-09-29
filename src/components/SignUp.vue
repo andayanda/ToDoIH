@@ -68,7 +68,9 @@ export default {
     handleSignUp() {
       if (this.password !== this.confirmPassword) {
         alert('las contraseñas no coinciden');
+        return;
       }
+
       const userData = {
         email: this.email,
         password: this.password,
