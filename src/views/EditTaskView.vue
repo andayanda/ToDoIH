@@ -76,7 +76,7 @@ export default {
         estimate: this.estimate,
 
       };
-      console.log(editedTask);
+
       this.updateTask(
         editedTask.id,
         editedTask.title,
