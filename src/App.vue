@@ -1,11 +1,12 @@
 <template>
   <div class="big">
-  <div class="container shadow-sm p-3 mb-5 bg-body rounded">
-    <AppHeader></AppHeader>
-    <NavBar></NavBar>
-    <router-view />
+    <div class="container shadow-sm p-3 mb-5 bg-body rounded">
+      {{errorMsg}}
+      <AppHeader></AppHeader>
+      <NavBar></NavBar>
+      <router-view />
+    </div>
   </div>
-</div>
 </template>
 <script>
 import userStore from '@/store/user';
@@ -15,7 +16,11 @@ import AppHeader from './components/AppHeader.vue';
 
 export default {
   name: 'App',
-
+  data() {
+    return {
+      errorMsg: '',
+    };
+  },
   components: {
     NavBar,
     AppHeader,
@@ -29,8 +34,8 @@ export default {
   async created() {
     try {
       await this.fetchUser(); // here we call fetch user
-    } catch (e) {
-      console.error(e);
+    } catch (error) {
+      this.errorMsg = error.message;
     }
   },
   watch: {
@@ -59,7 +64,7 @@ export default {
 }
 .big {
   padding-top: 2em;
-    min-height: 100vh;
+  min-height: 100vh;
 }
 
 nav {

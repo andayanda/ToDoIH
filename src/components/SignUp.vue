@@ -1,6 +1,7 @@
 <!-- eslint-disable vuejs-accessibility/label-has-for -->
 <template>
   <div class="modal-container">
+    <h2> {{msg}}    {{thks}}</h2>
     <h2>Sign up for an account</h2>
         <label for="password" class="form-label"  pattern=".{6,}">Password</label>
     <form>
@@ -58,6 +59,8 @@ export default {
       email: '',
       password: '',
       confirmPassword: '',
+      msg: '',
+      thks: '',
     };
   },
   computed: {
@@ -67,7 +70,7 @@ export default {
     ...mapActions(userStore, ['signUp']),
     handleSignUp() {
       if (this.password !== this.confirmPassword) {
-        alert('las contraseñas no coinciden');
+        this.msg = 'las contraseñas no coinciden';
         return;
       }
 
@@ -76,7 +79,7 @@ export default {
         password: this.password,
       };
       this.signUp(userData.email, userData.password);
-      alert('Gracias por registrarse. Recuerde confirmar su email de registro');
+      this.thks = 'Gracias por registrarse. Recuerde confirmar su email de registro';
     },
   },
 };
