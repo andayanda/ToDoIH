@@ -24,6 +24,7 @@
       <button class="btn btn-primary" @click="handleSignIn"
      >Sign In</button>
     </div>
+
   </div>
 </template>
 
@@ -51,16 +52,17 @@ export default {
       };
       this.signIn(userData.email, userData.password);
     },
-    handleSignInGoogle() {
-      this.signInWithGoogle();
-    },
-    handleRresetPass() {
-      const userData = {
-        email: this.email,
-      };
-      this.resetPass(userData.email);
-      alert(`Password reset email sent to: ${userData.email}`);
-    },
+    // funcionalidades para revisar
+    // handleSignInGoogle() {
+    //   this.signInWithGoogle();
+    // },
+    // handleRresetPass() {
+    //   const userData = {
+    //     email: this.email,
+    //   };
+    //   this.resetPass(userData.email);
+    //   alert(`Password reset email sent to: ${userData.email}`);
+    // },
   },
 };
 </script>
