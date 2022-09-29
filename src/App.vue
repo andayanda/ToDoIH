@@ -29,7 +29,6 @@ export default {
   async created() {
     try {
       await this.fetchUser(); // here we call fetch user
-      console.log(this.user);
     } catch (e) {
       console.error(e);
     }
